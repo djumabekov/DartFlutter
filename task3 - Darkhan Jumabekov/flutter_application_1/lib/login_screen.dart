@@ -72,8 +72,7 @@ class _LoginScreenState extends State<LoginScreen> {
   _checkPass(pass) {
     if (pass.length < _minPassLength) {
       setState(() {
-        errorPass =
-            'Пароль должен содержать не менее $_minPassLength  символов';
+        errorPass = 'Пароль должен содержать не менее $_minPassLength символов';
       });
     } else {
       setState(() {
@@ -118,7 +117,7 @@ class _LoginScreenState extends State<LoginScreen> {
                         child: Text(
                           errorName,
                           style:
-                              const TextStyle(color: Colors.red, fontSize: 8),
+                              const TextStyle(color: Colors.red, fontSize: 10),
                         ),
                       ),
                     ],
@@ -145,14 +144,14 @@ class _LoginScreenState extends State<LoginScreen> {
                         child: Text(
                           errorPass,
                           style:
-                              const TextStyle(color: Colors.red, fontSize: 8),
+                              const TextStyle(color: Colors.red, fontSize: 10),
                         ),
                       ),
                     ],
                   ),
                 ),
                 Container(
-                    padding: const EdgeInsets.fromLTRB(10, 70, 0, 10),
+                    padding: const EdgeInsets.symmetric(vertical: 60),
                     child: ElevatedButton(
                       style: ButtonStyle(
                         shape:
