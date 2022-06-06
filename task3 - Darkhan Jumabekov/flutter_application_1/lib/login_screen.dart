@@ -1,3 +1,5 @@
+import 'dart:ffi';
+
 import 'package:flutter/material.dart';
 import 'home_screen.dart';
 
@@ -19,10 +21,20 @@ class _LoginScreenState extends State<LoginScreen> {
   final _maxPassLength = 16;
   String errorName = '';
   String errorPass = '';
+  String msgDialog = '';
+  bool isNameRespond = false;
+  bool isPassRespond = false;
 
   _auth() {
     final name = _nameController.text;
     final password = _passwordController.text;
+    if (!isNameRespond || !isPassRespond) {
+      setState(() {
+        msgDialog = 'Логин или пароль не соответствуют требованиям!';
+      });
+      showAlertDialog(context, msgDialog);
+      return;
+    }
 
     if (name == username && password == pass) {
       Navigator.push(
@@ -34,16 +46,19 @@ class _LoginScreenState extends State<LoginScreen> {
         ),
       );
     } else {
-      showAlertDialog(context);
+      setState(() {
+        msgDialog = 'Попробуйте снова';
+      });
+      showAlertDialog(context, msgDialog);
     }
   }
 
-  showAlertDialog(BuildContext context) {
+  showAlertDialog(BuildContext context, String msgDialog) {
     Widget okButton = TextButton(
         child: const Text("Закрыть"), onPressed: () => Navigator.pop(context));
 
     AlertDialog alert = AlertDialog(
-      title: const Text("Попробуйте снова"),
+      title: Text(msgDialog),
       actions: [
         okButton,
       ],
@@ -62,9 +77,15 @@ class _LoginScreenState extends State<LoginScreen> {
       setState(() {
         errorName = 'Логин должен содержать не менее $_minNameLength символов';
       });
+      setState(() {
+        isNameRespond = false;
+      });
     } else {
       setState(() {
         errorName = '';
+      });
+      setState(() {
+        isNameRespond = true;
       });
     }
   }
@@ -74,9 +95,15 @@ class _LoginScreenState extends State<LoginScreen> {
       setState(() {
         errorPass = 'Пароль должен содержать не менее $_minPassLength символов';
       });
+      setState(() {
+        isPassRespond = false;
+      });
     } else {
       setState(() {
         errorPass = '';
+      });
+      setState(() {
+        isPassRespond = true;
       });
     }
   }
