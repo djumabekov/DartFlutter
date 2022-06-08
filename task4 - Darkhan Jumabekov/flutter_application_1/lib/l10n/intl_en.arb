@@ -1,0 +1,17 @@
+{
+    "counterValue" : "Сounter value",
+    "auth" : "Authorization",
+    "inputLoginAndPassword" : "Input login and password",
+    "login" : "Login",
+    "password" : "Password",
+    "signIn" : "Sign in",
+    "loginAndPasswordIncorrect" : "login and password do not meet the requirements!",
+    "authorizeSuccess" : "Authorize success!",
+    "tryAgain" : "Try again",
+    "close" : "Close",
+    "loginLengthsIncorrect" : "The login must contain minimum characters: ",
+    "passwordLengthsIncorrect" : "The password must contain minimum characters: ",
+    "language" : "Language",
+    "english" : "English",
+    "russian" : "Russian"
+  }
