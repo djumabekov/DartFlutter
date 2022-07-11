@@ -1,9 +1,6 @@
 import 'package:flutter/material.dart';
-
 import 'package:flutter_application_1/person.dart';
-import 'package:flutter_application_1/generated/l10n.dart';
 import 'package:flutter_application_1/repo/repo_persons.dart';
-import 'constants/app_assets.dart';
 
 class PersonsListVModel with ChangeNotifier {
   PersonsListVModel({required this.repo}) {

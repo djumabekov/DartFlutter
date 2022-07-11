@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/repo/repo_persons.dart';
 import 'package:flutter_application_1/search_field.dart';
-import 'package:intl/intl.dart';
 import 'generated/l10n.dart';
 import 'constants/app_assets.dart';
 import 'constants/app_colors.dart';
